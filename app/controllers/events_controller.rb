@@ -5,12 +5,12 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    @events = @events.where(is_public: 1).where("start_at >= ?", DateTime.now)
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
-    Rails.logger.info @event.inspect
     @attends = @event.attends.all
     @attend = @event.attends.build
   end
@@ -74,6 +74,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :info, :start_at, :end_at, :key)
+      params.require(:event).permit(:name, :info, :start_at, :end_at, :key, :is_public)
     end
 end
