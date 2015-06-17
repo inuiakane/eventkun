@@ -31,7 +31,8 @@
   <%= @event.key %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
+<%#= link_to 'Edit', edit_event_path(@event) %>
+<%= link_to 'Edit', "/events/#{@event.key}/edit" %> |
 <%= link_to 'Back', events_path %>
 
 <h3>出席者リスト</h3>
