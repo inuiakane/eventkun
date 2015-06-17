@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @attend.event_id %>
+</p>
+
+<p>
+  <strong>User name:</strong>
+  <%= @attend.user_name %>
+</p>
+
+<p>
+  <strong>Attendance:</strong>
+  <%= @attend.attendance %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @attend.body %>
+</p>
+
+<%= link_to 'Edit', edit_attend_path(@attend) %> |
+<%= link_to 'Back', attends_path %>

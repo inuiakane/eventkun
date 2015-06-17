@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong>Info:</strong>
+  <%= @event.info %>
+</p>
+
+<p>
+  <strong>Start at:</strong>
+  <%= @event.start_at %>
+</p>
+
+<p>
+  <strong>End at:</strong>
+  <%= @event.end_at %>
+</p>
+
+<p>
+  <strong>公開/非公開:</strong>
+  <%= @event.dsp_is_public %>
+</p>
+
+
+<p>
+  <strong>Key:</strong>
+  <%= @event.key %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
+
+<h3>出席者リスト</h3>
+<% @attends.each do |atnd| %>
+  <div>
+    <strong><%= atnd.user_name %></strong>
+    <br />
+    <p><%= atnd.body %></p>
+    <p><%= link_to 'Delete', attend_path(atnd), method: :delete, data: { confirm: '削除してもよろしいですか？' } %></p>
+  </div>
+<% end %>
+
+<h3>お申し込み</h3>
+<%= render 'attends/form' %>
