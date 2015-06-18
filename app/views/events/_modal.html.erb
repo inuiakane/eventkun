@@ -1,0 +1,38 @@
+<%= form_for @event, :url => {:action => :sendmail} do |f| %>
+<div class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">イベントに招待する</h4>
+      </div>
+      
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">件名</div>
+            <div class="col-md-9"><%= text_field_tag :subject, '', style: "width:350px;" %></div>
+          </div>
+<br>
+          <div class="row">
+            <div class="col-md-3">宛先</div>
+            <div class="col-md-9"><%= text_area_tag :to, '', size: "40x3" %></div>
+          </div>
+          
+          <% if false %>
+          <div class="row">
+            <div class="col-md-3">URL</div>
+            <div class="col-md-9"><%= request.url %></div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+        <button type="submit" class="btn btn-primary">送信</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<% end %>

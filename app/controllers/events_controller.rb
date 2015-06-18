@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
-    @events = @events.where(is_public: 1).where("start_at >= ?", DateTime.now)
+    @events = @events.where(is_public: 1).where("start_at >= ?", DateTime.now).order(:start_at)
   end
 
   # GET /events/1
@@ -63,6 +63,11 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  
+  def sendmail
+    @mail = NoticeMailer.send_notice.deliver
+    render text: "send finish"
   end
 
   private

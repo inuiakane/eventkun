@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   resources :attends
 
+  patch 'events/:key/sendmail' => 'events#sendmail'
   resources :events, param: :key
 
+  namespace :admin do
+  #     # Directs /admin/products/* to Admin::ProductsController
+  #     # (app/controllers/admin/products_controller.rb)
+    resources :events
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
