@@ -25,6 +25,7 @@ class AttendsController < ApplicationController
   # POST /attends.json
   def create
     @attend = Attend.new(attend_params)
+    @attend.session_id = session.id  
 
     respond_to do |format|
       if @attend.save

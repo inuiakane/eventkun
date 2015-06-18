@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :is_editor, only: [:show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
@@ -29,6 +30,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.key = @event.create_key
+    @event.session_id = session.id
 
     respond_to do |format|
       if @event.save
@@ -81,4 +83,9 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:name, :info, :start_at, :end_at, :key, :is_public)
     end
+  
+    def is_editor
+      @is_editor = (session.id == @event.session_id)
+    end
+  
 end

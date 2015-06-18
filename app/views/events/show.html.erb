@@ -32,18 +32,30 @@
 </p>
 
 <%#= link_to 'Edit', edit_event_path(@event) %>
-<%= link_to 'Edit', "/events/#{@event.key}/edit" %> |
+<% if @is_editor %>
+  <%= link_to 'Edit', "/events/#{@event.key}/edit" %> |
+<% end %>
 <%= link_to 'Back', events_path %>
 
 <h3>出席者リスト</h3>
+<table class="table table-bordered">
+  <tbody>
 <% @attends.each do |atnd| %>
-  <div>
-    <strong><%= atnd.user_name %></strong>
-    <br />
-    <p><%= atnd.body %></p>
-    <p><%= link_to 'Delete', attend_path(atnd), method: :delete, data: { confirm: '削除してもよろしいですか？' } %></p>
-  </div>
+  <tr>
+    <td><strong><%= atnd.user_name %></strong></td>
+    <td><p><%= atnd.body %></p></td>
+    <td>
+      <% if atnd.session_id == session.id %>
+      <p><%= link_to attend_path(atnd), method: :delete, class: "btn", data: { confirm: '削除してもよろしいですか？' } do %>
+          <span class="glyphicon glyphicon-trash"></span>
+          <% end %>
+      </p>
+      <% end %>
+    </td>
+  </tr>
 <% end %>
+  </tbody>
+</table>
 
 <h3>お申し込み</h3>
 <%= render 'attends/form' %>
