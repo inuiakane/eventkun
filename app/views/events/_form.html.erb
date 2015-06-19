@@ -45,6 +45,7 @@
   <div class="actions">
     <div class="pull-left">
       <%= link_to 'Back', events_path, class: "btn btn-default" %>
+      <%= link_to 'Show', "/events/#{@event.key}", class: "btn btn-default" %>
     </div>
     <div class="text-center">
       <%= f.submit class: "btn btn-success" %>

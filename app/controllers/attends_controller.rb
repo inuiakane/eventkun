@@ -29,11 +29,10 @@ class AttendsController < ApplicationController
 
     respond_to do |format|
       if @attend.save
-        format.html { redirect_to @attend, notice: 'Attend was successfully created.' }
-        format.json { render :show, status: :created, location: @attend }
+        format.html { redirect_to "/events/#{@attend.event.key}", notice: 'Attend was successfully created.' }
+#        format.html { redirect_to @attend, notice: 'Attend was successfully created.' }
       else
         format.html { render :new }
-        format.json { render json: @attend.errors, status: :unprocessable_entity }
       end
     end
   end
