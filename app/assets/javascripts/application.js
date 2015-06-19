@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.turbolinks
 //= require turbolinks
 
 
@@ -19,6 +20,7 @@
 //= require bootstrap-datetimepicker
 
 //= require_tree .
+
 
 var data = {'data-date-format': 'YYYY-MM-DD hh:mm:ss' };
 $(function(){

@@ -43,4 +43,4 @@ gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
 
 gem 'activerecord-session_store'
-
+gem 'jquery-turbolinks'
