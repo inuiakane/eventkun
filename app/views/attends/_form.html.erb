@@ -1,5 +1,17 @@
 <%= form_for(@attend) do |f| %>
-  <% if @attend.errors.any? %>
+<div class="modal fade atnd-modal" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">参加申し込み</h4>
+      </div>
+      
+      <div class="modal-body">
+        <div class="container-fluid">
+
+            <% if @attend.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@attend.errors.count, "error") %> prohibited this attend from being saved:</h2>
 
@@ -11,20 +23,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_name %><br>
-    <%= f.text_field :user_name %>
-    <%= f.hidden_field :event_id %>
-  </div>
-  <div class="field">
+          <% if false %>
+          <div class="field">
     <%= f.label :attendance %><br>
     <%= f.number_field :attendance %>
   </div>
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+          <% end %>
+          
+          
+          
+          <div class="row">
+            <div class="col-md-3">おなまえ</div>
+            <div class="col-md-9">    <%= f.text_field :user_name %>
+    <%= f.hidden_field :event_id %></div>
+          </div>
+<br>
+          <div class="row">
+            <div class="col-md-3">コメント</div>
+            <div class="col-md-9"><%= f.text_area :body %></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
+        <button type="submit" class="btn btn-primary">申し込む</button>
+      </div>
+      
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <% end %>

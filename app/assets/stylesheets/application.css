@@ -17,12 +17,30 @@
 @import 'bootstrap-datetimepicker';
 
 body { 
-  padding-top: 60px;
-  /* background-color: #1abc9c; */
+  padding: 60px 0;
+  background-color: #40AAEF;
+  width: 100%;
+  position: relative;
+  height: auto !important;
+  height: 100%;
+  min-height: 100%;  
 }
-footer { margin-top: 100px; }
+footer {
+  /* margin-top: 100px; */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 35px;
+}
 table, td, th { vertical-align: middle; border: none; }
 th { border-bottom: 1px solid #DDD; }
-a:visited {
-  color: #bdc3c7;
+
+a:link {
+  color: #2c3e50;
+  /* font-weight: 500; */
 }
+a:visited {
+  color: #2c3e50;
+  /* font-weight: 100; */
+}
+
