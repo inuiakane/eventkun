@@ -1,6 +1,8 @@
 <h1>開催されるイベント</h1>
-
-<table class="table table-bordered table-hover">
+<br>
+ <%= link_to '新しいイベントを作成する', new_event_path, class: "btn btn-primary" %>
+<br><br>
+<!--table class="table table-bordered table-hover">
   <thead>
     <tr>
       <th>イベント名</th>
@@ -24,8 +26,32 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+</table-->
 
-<br>
+<div class="row">
+ <% @events.each do |event| %>
 
-<%= link_to '新しいイベントを作成する', new_event_path, class: "btn btn-primary" %>
+      <div class="col-md-4"> 
+      <div class="panel panel-info">
+
+        <!--div class="bg-info"--> 
+        <div class="panel-heading">
+        <h5 class="panel-title"><%= event.name %> </h5>
+          </div>
+          <div class="panel-body">
+        <%= event.info %> <br>
+        <%= event.start_at %> <br>
+        <%#= event.end_at %> <br>
+            </div>
+        <div class="panel-footer">
+        <%= link_to 'Show', "/events/#{event.key}" %>
+        <%= link_to 'Edit', edit_event_path(event) %>
+        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+          <!--br><br-->
+          </div>
+       </div>
+   <% end %>
+  </div> 
+</div> 
+
+

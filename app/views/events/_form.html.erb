@@ -15,19 +15,30 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+ <div class="field"> 
     <%= f.label :info %><br>
     <%= f.text_area :info %>
   </div>
-  <div class="field">
-    <%= f.label :start_at %><br>
-    <%= f.datetime_select :start_at %>
-  </div>
-  <div class="field">
-    <%= f.label :end_at %><br>
-    <%= f.datetime_select :end_at %>
-  </div>
-  <div class="field">
+
+    <%= f.label :start_at %>
+ <div class='input-group date datepicker'>
+    <%= f.text_field :start_at, data: { :date_format => 'YYYY-MM-DD HH:mm' },class: 'form-control' %>
+    <span class="input-group-addon">
+　</div>
+
+  <!--div class="field"-->
+    <%#= f.label :end_at %><br>
+    <%#= f.datetime_select :end_at %>
+  <!--/div-->
+  
+<%= f.label :end_at %>
+ <div class='input-group date datepicker'>
+   <%= f.text_field :end_at, data: { :date_format => 'YYYY-MM-DD HH:mm' },class: 'form-control' %>
+    <span class="input-group-addon">
+     </div>
+     
+     
+     <div class="field">
     <%= f.label :is_public %><br>
     <%= f.text_field :is_public %>
   </div>  

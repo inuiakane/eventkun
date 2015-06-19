@@ -18,6 +18,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    
   end
 
   # GET /events/1/edit
@@ -29,6 +30,8 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.key = @event.create_key
+    
+
 
     respond_to do |format|
       if @event.save
