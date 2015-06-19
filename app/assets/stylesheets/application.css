@@ -10,15 +10,17 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap-datetimepicker
  *= require_tree .
  *= require_self
  */
- *= require bootstrap-datetimepicker
+
 @import 'bootstrap-datetimepicker';
 
 body { 
-  padding: 60px 0;
-  background-color: #40AAEF;
+  padding-top: 80px;
+  padding-bottom: 50px;  
+  /* background-color: #40AAEF; */
   width: 100%;
   position: relative;
   height: auto !important;
@@ -44,3 +46,8 @@ a:visited {
   /* font-weight: 100; */
 }
 
+.form-area {
+  background-color:#f7f7f7; 
+  padding:20px; 
+  border-radius:4px;
+}
